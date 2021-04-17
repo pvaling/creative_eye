@@ -1,0 +1,33 @@
+{% load static %}
+
+<html>
+<body>
+
+
+
+<div>{{ video_url }}</div>
+<video width="350px" id="videoPlayer" src="{{ video_url }}" controls ></video>
+
+<table>
+    {% for img in imgs %}
+        <tr>
+            <td>{{ img|truncatechars:100 }}</td>
+            <td><img width="200px" src="{{ img }}" alt=""></td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+
+<script type="application/javascript">
+    var vid = document.getElementById("videoPlayer");
+
+    function setCurTime(time) {
+      vid.currentTime=Math.floor(time / 100);
+    }
+
+
+
+</script>
+
+</html>
+

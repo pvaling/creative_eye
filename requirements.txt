@@ -1,0 +1,2 @@
+django-cleanup
+boto3

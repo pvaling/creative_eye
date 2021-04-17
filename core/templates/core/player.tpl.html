@@ -1,0 +1,36 @@
+{% load static %}
+
+<html>
+<body>
+
+
+
+<div>{{ video_url }}</div>
+<video width="350px" id="videoPlayer" src="{{ video_url }}" controls ></video>
+
+<table>
+    {% for label in labels %}
+        <tr>
+{#            <td>{{ label.Timestamp }}</td>#}
+            <td>{{ label.human_time }}</td>
+            <td><span style="color: blue; font-weight: bold; cursor: pointer" onclick="setCurTime({{ label.Timestamp }})">{{ label.Label.Name }}</span></td>
+            <td>{{ label.Label.Instances }}</td>
+{#            <td><video oncanplay="setCurTime(event)" data-start-pos={{ label.Timestamp }}  width="250px" id="videoPlayer" src="{{ video_url }}"  ></video></td>#}
+        </tr>
+    {% endfor %}
+</table>
+</body>
+
+<script type="application/javascript">
+    var vid = document.getElementById("videoPlayer");
+
+    function setCurTime(time) {
+      vid.currentTime=Math.floor(time / 100);
+    }
+
+
+
+</script>
+
+</html>
+
